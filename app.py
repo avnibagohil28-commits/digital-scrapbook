@@ -8,8 +8,15 @@ import json
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'super-secret-vibe-key-12345'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
+
+# --- DYNAMIC DATABASE CONFIGURATION FOR DEPLOYMENT ---
+db_url = os.environ.get('DATABASE_URL')
+if db_url and db_url.startswith("postgresql://"):
+    # Fixes an old SQLAlchemy compatibility quirk for Render/Supabase connection urls
+    db_url = db_url.replace("postgresql://", "postgres://", 1)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = db_url or 'sqlite:///database.db'
 
 db = SQLAlchemy(app)
 login_manager = LoginManager(app)
@@ -179,15 +186,12 @@ def profile():
 @app.route('/delete_memory/<int:memory_id>', methods=['POST'])
 @login_required
 def delete_memory(memory_id):
-    # Fetch the memory or throw a 404 if it doesn't exist
     memory = Memory.query.get_or_404(memory_id)
     
-    # Security check: Ensure the logged-in user actually owns this memory!
     if memory.user_id != current_user.id:
         flash("You can't delete someone else's scrapbook story, bestie! ✋", "error")
         return redirect(url_for('index'))
     
-    # Remove from database session and commit
     db.session.delete(memory)
     db.session.commit()
     
