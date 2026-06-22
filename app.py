@@ -12,9 +12,8 @@ app.config['UPLOAD_FOLDER'] = 'static/uploads'
 
 # --- DYNAMIC DATABASE CONFIGURATION FOR DEPLOYMENT ---
 db_url = os.environ.get('DATABASE_URL')
-if db_url and db_url.startswith("postgresql://"):
-    # Fixes an old SQLAlchemy compatibility quirk for Render/Supabase connection urls
-    db_url = db_url.replace("postgresql://", "postgres://", 1)
+# Modern SQLAlchemy expects the full 'postgresql://' prefix
+app.config['SQLALCHEMY_DATABASE_URI'] = db_url or 'sqlite:///database.db'
 
 app.config['SQLALCHEMY_DATABASE_URI'] = db_url or 'sqlite:///database.db'
 
