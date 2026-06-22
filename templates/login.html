@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="form-container">
+    <h2 class="form-title">Welcome Back Bestie 🔑</h2>
+    
+    <form method="POST" action="/login">
+        <div class="input-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+        </div>
+        
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="••••••••" required>
+        </div>
+        
+        <button type="submit" class="btn-primary">Let Me In</button>
+    </form>
+    
+    <p style="text-align: center; margin-top: 20px; font-size: 0.9rem; color: #666;">
+        New here? <a href="/signup" style="color: #4a3728; font-weight: 600; text-decoration: none;">Create an account</a>
+    </p>
+</div>
+{% endblock %}

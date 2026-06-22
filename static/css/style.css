@@ -1,0 +1,391 @@
+/* ==========================================
+   📸 PREMIUM AESTHETIC DARK SCRAPBOOK DESIGN
+   ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Georgia&family=Caveat:wght@700&display=swap');
+
+body {
+    background-color: #1a1613; /* Deep espresso dark charcoal */
+    background-image: 
+        radial-gradient(rgba(255, 255, 255, 0.04) 15%, transparent 16%),
+        radial-gradient(rgba(255, 255, 255, 0.04) 15%, transparent 16%);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+    font-family: 'Poppins', sans-serif;
+    color: #e5e0da; /* Softer vintage text instead of harsh bright white */
+    margin: 0;
+    padding-top: 85px;
+}
+
+/* Luxury Velvet Glass Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 65px;
+    background: rgba(26, 22, 19, 0.8);
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 1000;
+}
+
+.nav-logo {
+    font-family: 'Caveat', cursive;
+    font-size: 2.2rem;
+    color: #ffeaa7; /* Elegant warm gold logo */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #bfae9e;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.nav-item:hover {
+    color: #ffeaa7;
+}
+
+.nav-profile-btn {
+    background: #4a3728;
+    color: #fff !important;
+    padding: 8px 16px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Timeline Grid Framework */
+.scrapbook-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 30px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Compact Timeline Card Design with Alternate Organic Rotation */
+.note-style {
+    background: #25201c !important; /* Elegant dark charcoal card blocks */
+    padding: 22px !important;
+    border-radius: 12px !important;
+    border-left: 6px solid #ffeaa7; /* Glowing gold binder border line */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
+}
+
+/* Gives cards an organic scattered layout appearance on the board */
+.scrapbook-grid .note-style:nth-child(even) {
+    transform: rotate(1deg);
+}
+.scrapbook-grid .note-style:nth-child(odd) {
+    transform: rotate(-1deg);
+}
+
+/* Flattens them out cleanly and lifts them up when you hover over them */
+.scrapbook-grid .note-style:hover {
+    transform: translateY(-5px) rotate(0deg) !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    border-left-color: #ff7675; /* Smoothly transitions indicator tag color on hover */
+}
+
+.note-style h3 {
+    margin: 0;
+    color: #e5e0da;
+}
+
+/* Premium Structured Creation Containers (Forms) */
+.form-container {
+    background: #25201c !important; /* Solid matte dark card base */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    max-width: 550px;
+    margin: 40px auto;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    box-sizing: border-box;
+}
+
+.form-title {
+    font-family: 'Georgia', serif;
+    color: #ffeaa7;
+    text-align: center;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #bfae9e;
+    margin-bottom: 6px;
+}
+
+.input-group input, .input-group select, .input-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    border-radius: 10px;
+    background: #1e1916 !important;
+    color: #fff !important;
+    box-sizing: border-box;
+}
+
+.input-group input:focus, .input-group select:focus, .input-group textarea:focus {
+    border-color: #ffeaa7 !important;
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 234, 167, 0.2);
+}
+
+/* Dropzone style modifications */
+.custom-file-upload {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #1e1916;
+    border: 2px dashed rgba(255, 255, 255, 0.15) !important;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #bfae9e;
+}
+
+.custom-file-upload:hover {
+    background: #25201c;
+    border-color: #ffeaa7 !important;
+}
+
+.file-name-display {
+    font-size: 0.8rem;
+    color: #ff7675;
+    margin-top: 4px;
+}
+
+/* Interactive Action Form Submit Buttons */
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: #4a3728;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    background: #ffeaa7;
+    color: #1a1613;
+    transform: translateY(-1px);
+}
+
+/* ==========================================
+   AESTHETIC POPUP OVERLAY SYSTEM (THE GALLERY VIEW)
+   ========================================== */
+.scrapbook-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 8, 7, 0.92) !important; /* Rich immersive dim frame overlay background */
+    backdrop-filter: blur(15px) !important;
+    z-index: 9999 !important;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Crisp Studio Polaroid container inside the deep dark filter */
+.modal-content {
+    background: #fbfaf7 !important; /* Holds dynamic crisp polaroid bright white paper backing style */
+    max-width: 520px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 30px !important;
+    border-radius: 4px !important;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8) !important;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Custom smooth scrollbar for popup cards */
+.modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+.modal-content::-webkit-scrollbar-track {
+    background: #25201c;
+}
+.modal-content::-webkit-scrollbar-thumb {
+    background: #ffeaa7;
+    border-radius: 10px;
+}
+
+/* High-contrast polaroid contents styling configurations */
+.modal-polaroid-img {
+    width: 100%;
+    height: auto;
+    max-height: 360px;
+    object-fit: cover;
+    border-radius: 2px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    border: 8px solid #fff;
+    box-sizing: border-box;
+    margin-bottom: 25px;
+}
+
+.polaroid-caption {
+    text-align: left !important;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.polaroid-caption h2 {
+    color: #2c1d11 !important; /* Bold solid dark espresso brown title text contrast */
+    font-family: 'Georgia', serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    margin: 0 !important;
+}
+
+.polaroid-caption p {
+    color: #4a3c31 !important; /* Perfect readability caption values */
+    font-family: 'Georgia', serif;
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
+    margin: 5px 0 !important;
+}
+
+/* Close popup trigger link icon wrapper */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 22px;
+    font-size: 2.2rem;
+    color: #bfae9e;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: #d63031;
+}
+
+/* Vibrant Aesthetic Neon Mood Badges */
+.mood-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+.mood-happy { background-color: #ffeaa7; color: #6f5200; }
+.mood-sad { background-color: #74b9ff; color: #00366f; }
+.mood-romantic { background-color: #fab1a0; color: #7a1d07; }
+.mood-excited { background-color: #55efc4; color: #006148; }
+.mood-chaotic { background-color: #a29bfe; color: #2a1b7a; }
+
+/* ==========================================
+   PROFILE AVATAR DP SIZING & CLIPPING FIX
+   ========================================== */
+
+/* This container acts as the strict window frame */
+.profile-avatar-container {
+    width: 140px !important;
+    height: 140px !important;
+    margin: 0 auto 15px auto !important;
+    position: relative !important;
+    border-radius: 50% !important; /* Forces a perfect circle shape */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4) !important;
+    border: 3px solid #ffeaa7 !important; /* Elegant thin gold frame border rim */
+    overflow: hidden !important; /* CRITICAL: Crops anything sticking outside the circle */
+    background: #1e1916 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* This forces the actual massive image to scale down nicely into the frame */
+.profile-avatar-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Prevents stretching or squishing */
+    display: block !important;
+}
+
+/* Fallback letter layout */
+.profile-avatar-placeholder {
+    width: 100% !important;
+    height: 100% !important;
+    background: #4a3728 !important;
+    color: #ffeaa7 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 3rem !important;
+    font-family: 'Georgia', serif !important;
+}
+
+/* Thumbnail Preview Mini-Grid Layout inside individual popups */
+.media-preview-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 12px;
+    margin: 15px 0;
+}
+
+.thumb-media {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 2px solid #fff;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    cursor: zoom-in;
+    transition: transform 0.2s;
+}
+
+.thumb-media:hover {
+    transform: scale(1.05);
+}
+
+/* Immersive Lightbox Screen styles */
+.lightbox-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 10000; /* Stays over everything */
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px; right: 30px;
+    color: #fff; font-size: 3rem; cursor: pointer;
+}

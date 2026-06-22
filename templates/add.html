@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="form-container" style="max-width: 550px; background: #25201c; border-radius: 20px;">
+    <h2 class="form-title" style="font-family: 'Georgia', serif; font-size: 2.2rem; margin-bottom: 30px;">Document the Plot 📖</h2>
+    
+    <form method="POST" action="/add_memory" enctype="multipart/form-data">
+        <div class="input-group">
+            <label for="title">Memory Header</label>
+            <input type="text" id="title" name="title" placeholder="Give this moment a title..." required>
+        </div>
+        
+        <div class="input-group">
+            <label for="content">What happened?</label>
+            <textarea id="content" name="content" rows="4" placeholder="Spill the tea..." required></textarea>
+        </div>
+        
+        <div class="input-group">
+            <label for="mood">Current Vibe / Mood</label>
+            <select id="mood" name="mood">
+                <option value="Happy">Happy 🥰</option>
+                <option value="Sad">Sad 🥺</option>
+                <option value="Romantic">Romantic 💖</option>
+                <option value="Excited">Excited 🥳</option>
+                <option value="Chaotic">Chaotic 🤪</option>
+            </select>
+        </div>
+        
+        <!-- Multiple Photos Dropzone -->
+        <div class="input-group">
+            <label>Drop Pics (Select Multiple)</label>
+            <label class="custom-file-upload">
+                <span>🖼️ Choose images...</span>
+                <input type="file" name="photos" id="photos-input" class="hidden-file-input" accept="image/*" multiple>
+            </label>
+            <span id="photos-count" class="file-name-display"></span>
+        </div>
+
+        <!-- Multiple Videos Dropzone -->
+        <div class="input-group">
+            <label>Drop Videos (Select Multiple)</label>
+            <label class="custom-file-upload">
+                <span>🎬 Choose videos...</span>
+                <input type="file" name="videos" id="videos-input" class="hidden-file-input" accept="video/*" multiple>
+            </label>
+            <span id="videos-count" class="file-name-display"></span>
+        </div>
+        
+        <!-- Multiple Audio Clips Dropzone -->
+        <div class="input-group">
+            <label>Voice Notes / Audio Tracks</label>
+            <label class="custom-file-upload">
+                <span>🎙️ Choose audio clips...</span>
+                <input type="file" name="audios" id="audios-input" class="hidden-file-input" accept="audio/*" multiple>
+            </label>
+            <span id="audios-count" class="file-name-display"></span>
+        </div>
+        
+        <button type="submit" class="btn-primary" style="margin-top: 15px;">Lock It In 🔒</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('photos-input').addEventListener('change', function() {
+        document.getElementById('photos-count').textContent = this.files.length + ' file(s) selected';
+    });
+    document.getElementById('videos-input').addEventListener('change', function() {
+        document.getElementById('videos-count').textContent = this.files.length + ' file(s) selected';
+    });
+    document.getElementById('audios-input').addEventListener('change', function() {
+        document.getElementById('audios-count').textContent = this.files.length + ' file(s) selected';
+    });
+</script>
+{% endblock %}

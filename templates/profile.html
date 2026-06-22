@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="form-container" style="max-width: 550px; text-align: center; background: #25201c; border-radius: 20px;">
+    
+    <form method="POST" action="/profile" enctype="multipart/form-data" id="profile-pic-form">
+        <div class="profile-avatar-container">
+            {% if current_user.profile_pic and current_user.profile_pic != 'default_avatar.png' %}
+                <img src="{{ url_for('static', filename=current_user.profile_pic) }}" class="profile-avatar-img" alt="Profile Picture">
+            {% else %}
+                <div class="profile-avatar-placeholder">
+                    {{ current_user.username[0].upper() }}
+                </div>
+            {% endif %}
+        </div>
+
+        <label for="profile-pic-input" class="change-photo-label" style="color: #ffeaa7;">📸 Change Profile Picture</label>
+        <input type="file" name="profile_pic" id="profile-pic-input" style="display: none;" accept="image/*">
+    </form>
+
+    <h2 style="font-family: 'Georgia', serif; margin-bottom: 5px; color: #ffeaa7; font-size: 2rem;">@{{ current_user.username }}</h2>
+    <p style="color: #bfae9e; font-size: 0.95rem; margin-top: 0; margin-bottom: 25px; font-style: italic;">Scrapbook Curator ✨</p>
+
+    <div style="display: flex; justify-content: space-around; background: #1e1916; padding: 18px; border-radius: 12px; margin-bottom: 30px; border: 1px dashed rgba(255,255,255,0.1);">
+        <div>
+            <span style="display: block; font-size: 1.8rem; font-weight: bold; color: #ffeaa7;">{{ total_memories }}</span>
+            <span style="font-size: 0.75rem; text-transform: uppercase; color: #bfae9e; font-weight: 600; letter-spacing: 0.5px;">Moments Logged</span>
+        </div>
+        <div>
+            <span style="display: block; font-size: 1.8rem; font-weight: bold; color: #55efc4;">Active</span>
+            <span style="font-size: 0.75rem; text-transform: uppercase; color: #bfae9e; font-weight: 600; letter-spacing: 0.5px;">Scrapbook Status</span>
+        </div>
+    </div>
+
+    <a href="{{ url_for('index') }}" class="btn-primary" style="display: block; text-decoration: none; margin-bottom: 12px; text-align: center; box-sizing: border-box; border-radius: 10px;">
+        Open My Scrapbook Board
+    </a>
+    
+    <a href="/add_memory" class="btn-primary" style="display: block; text-decoration: none; background: transparent; color: #ffeaa7; border: 2px solid #ffeaa7; text-align: center; box-sizing: border-box; border-radius: 10px;">
+        + Document a New Memory
+    </a>
+</div>
+
+<script>
+    document.getElementById('profile-pic-input').addEventListener('change', function() {
+        if(this.files.length > 0) {
+            document.getElementById('profile-pic-form').submit();
+        }
+    });
+</script>
+{% endblock %}
